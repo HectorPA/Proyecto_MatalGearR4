@@ -1,0 +1,89 @@
+Player:
+
+public float forceX;
+public float forceY;
+public float maxX;
+public float maxY;
+public int hp;
+public int shield;//por si quieren escudo 
+public int disparos;
+public GameObject arma1;
+movimiento(){}
+ataque(){}
+
+Turret:
+
+public float fireRate;
+public float nextFire;
+public float grados;
+public float gradosMaximos;
+public float distanciaAtacar;
+public float velocidad;
+public int hp;
+public int maxHp;
+public int municion;
+public bool empezarAtaque;
+public bool recargar;
+public gameObject bullet;
+public gameObject bulletSpawn;
+public gameObject target;
+vigilancia(){}
+ataque(){}
+
+
+LazerDoor:
+
+public float distanciaActivar;
+public bool sensorActivar;
+public gameObject target;
+public gameObject laser;
+public gameObject laserSpawn;
+ataque(){}
+IEnumerator estadoDesactivado(){}
+IEnumerator estadoActivado(){}
+
+//se puede hacer resiclado de este agregando el daño para la distintas armas
+
+balaControl:
+public float speed;
+
+//se puede crear una base para el movimiento de soldado y jefes 
+
+
+Soldado:
+public int vida;
+public bool Ataque;
+public bool reposo;
+rangoDeteccion();
+MovimientoSoldado();
+VelocidadSoldado();
+SeguimientoJugador();
+public int balas;
+public gameobject balas;
+public gameobject target;
+
+Boss Tanque:
+public int vidaTanque;
+public bool Ataque;
+MovimientoBoss();
+VelocidadBoss();
+public int Cañones;
+public gameobject Cañon;
+CañonRespawn();
+public bool sensorTorreta;
+public int BalasTorreta;
+public gameobject torreta();
+public bool RecargaCañon();
+public bool RecargaTorreta();
+public gameobject target;
+SeguimientoJugadorTorreta();
+SeguimientoJugadorCañon();
+
+El gran jefe:
+public int vida;
+public bool Ataque;
+public gameobject arma1;
+public gameobject arma2;
+Movimiento();
+Ataques();
+
