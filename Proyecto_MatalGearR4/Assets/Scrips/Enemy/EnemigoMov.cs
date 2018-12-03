@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Pathfinding;
+using Pathfinding;
 
 public class EnemigoMov : BaseEnemy {
   
-    //AIDestinationSetter destino;
+    AIDestinationSetter destino;
 
     bool playerDec = false;
 
     void Start() {
         //Se llama el scrip
-        //destino = GetComponent<AIDestinationSetter>();
+        destino = GetComponent<AIDestinationSetter>();
         indexWayPoints = 0;
         //destino.target = points[currentPoint];
     }
@@ -26,14 +26,14 @@ public class EnemigoMov : BaseEnemy {
             if (transform.position == points[indexWayPoints].position)
             {
                 indexWayPoints = (indexWayPoints + 1) % points.Length;
-                //destino.target = points[indexWayPoints];
+                destino.target = points[indexWayPoints];
             }
         }
     }
     void OnTriggerEnter2D(Collider2D obj){
         if (obj.tag == "Player"){
             playerDec = true;
-            //destino.target = obj.transform;
+            destino.target = obj.transform;
         }
     }
     void OnTriggerExit2D(Collider2D obj)
@@ -41,7 +41,7 @@ public class EnemigoMov : BaseEnemy {
         if (obj.tag == "Player")
         {
             playerDec = false;
-            //destino.target = points[indexWayPoints];
+            destino.target = points[indexWayPoints];
         }
     }
 

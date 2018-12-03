@@ -62,13 +62,13 @@ public class Player : MonoBehaviour {
         if (valX == 0)
         {
             Vector2 freno = rb.velocity;
-            freno.x -= rb.velocity.x * 0.1f;
+            freno.x -= rb.velocity.x * 0.5f;
             rb.velocity = freno;
         }
         if (valY == 0)
         {
             Vector2 freno = rb.velocity;
-            freno.y -= rb.velocity.y * 0.1f;
+            freno.y -= rb.velocity.y * 0.5f;
             rb.velocity = freno;
         }
     }

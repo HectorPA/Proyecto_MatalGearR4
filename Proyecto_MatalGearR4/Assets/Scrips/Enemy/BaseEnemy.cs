@@ -5,8 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour {
     [Header ("Waypoints")]
     
-    public Transform[] points;    //Cuidado aqui, por que estas restringiendo el arreglo a solo 4 espacios
-   
+    public Transform[] points;  
     [Range(1.0f, 10.0f)]
     public float speed;
 
