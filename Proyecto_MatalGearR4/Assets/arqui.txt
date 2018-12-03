@@ -47,8 +47,25 @@ IEnumerator estadoActivado(){}
 balaControl:
 public float speed;
 
-//se puede crear una base para el movimiento de soldado y jefes 
+//se crea una base para el movimiento de soldado y jefes 
+BaseEnemy:
+public Transform[] points; 
+public float speed;
+private Vector3 currentPoint;
+protected int indexWayPoints = 0;
+protected GameObject thePlayer;
+void Start();
+void Update ();
+protected virtual void Moviemiento();
 
+EnemigoMov:
+BaseEnemy+  
+AIDestinationSetter destino;
+bool playerDec = false;
+void Start();
+public override void Movement();
+void OnTriggerEnter2D(Collider2D obj);
+void OnTriggerExit2D(Collider2D obj);
 
 Soldado:
 public int vida;
@@ -79,7 +96,7 @@ public gameobject target;
 SeguimientoJugadorTorreta();
 SeguimientoJugadorCañon();
 
-El gran jefe:
+GranJefaso:
 public int vida;
 public bool Ataque;
 public gameobject arma1;
