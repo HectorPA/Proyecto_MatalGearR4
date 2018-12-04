@@ -12,8 +12,6 @@ public class BaseEnemy : MonoBehaviour {
     private Vector3 currentPoint;
     protected int indexWayPoints = 0;
     protected GameObject thePlayer;
-    public int vida;
-
 
     void Start()
     {
@@ -25,7 +23,9 @@ public class BaseEnemy : MonoBehaviour {
         Movement();
        }
 
-  
+    protected virtual void Moviemiento2() {
+
+    }
 
     public virtual void Movement()
     {
