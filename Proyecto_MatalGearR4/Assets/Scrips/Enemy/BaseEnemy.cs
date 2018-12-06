@@ -46,4 +46,5 @@ public class BaseEnemy : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, currentPoint, speed * Time.deltaTime);//mivimiento de un punto a otro lileanal
 
     }
+
 }
