@@ -26,6 +26,8 @@ public class Mina : Arma {
             {
                 Destroy(col.gameObject);
             }
+
+            Destroy(gameObject);
         }
     }
 }

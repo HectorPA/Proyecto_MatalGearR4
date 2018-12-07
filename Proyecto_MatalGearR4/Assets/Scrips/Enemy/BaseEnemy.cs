@@ -7,7 +7,7 @@ public class BaseEnemy : MonoBehaviour {
     
     public Transform[] points;  
     [Range(1.0f, 10.0f)]
-    public float speed;
+    public float speed,speed2;
 
     private Vector3 currentPoint;
     protected int indexWayPoints = 0;
