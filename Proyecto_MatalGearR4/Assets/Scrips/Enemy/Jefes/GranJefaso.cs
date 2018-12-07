@@ -10,19 +10,23 @@ public class GranJefaso : BaseEnemy{
     [Range(0.1f, 0.99f)]
     public double phase2Percentage;
     [Range(0.1f, 3f)]
-    public float velocity1, velocity2;
+    public float speed2;
 
     public GameObject prefabBalaMetralla;
     public GameObject prefabBalaEscopeta;
     public GameObject prefabMina;
-
+    public GameObject player;
+    public bool Points = false;
     public Deteccion sensor1, sensor2;
+
 
     public enum Status { Phase1, Phase2 }
     public Status status;
     public enum Colliding { None, Sensor1, Sensor2 }
     public Colliding colliding;
 
+
+    AIDestinationSetter destino;
     AILerp aiLerp;
 
     Coroutine shooting1Co, shooting2Co, minaCo;
@@ -33,6 +37,9 @@ public class GranJefaso : BaseEnemy{
         maxLife = vida;
         status = Status.Phase1;
         colliding = Colliding.None;
+        player = GameObject.FindGameObjectWithTag("Player");
+        destino = GetComponent<AIDestinationSetter>();
+        indexWayPoints = 0;
     }
 
     // Update is called once per frame
@@ -44,8 +51,29 @@ public class GranJefaso : BaseEnemy{
         Shoot(colliding);
         aiLerp.speed = VelocityHandler(status);
         MinaHandler(status);
-    }
+    /*
+        float a = player.transform.position.y - transform.position.y;
+        float b = player.transform.position.x - transform.position.x;
+        float c = Mathf.Sqrt(a * a + b * b);
 
+        float ang = Mathf.Asin(a / c);
+
+        transform.rotation = Quaternion.EulerAngles(0, 0, ang);
+        */
+        
+
+    }
+    public override void Movement()
+    {
+        if (!Points)
+        {
+            if (transform.position == points[indexWayPoints].position)
+            {
+                indexWayPoints = (indexWayPoints + 1) % points.Length;
+                destino.target = points[indexWayPoints];
+            }
+        }
+    }
     void MinaHandler(Status current)
     {
         switch (current)
@@ -104,10 +132,11 @@ public class GranJefaso : BaseEnemy{
         switch (current)
         {
             case Status.Phase1:
-                value = velocity1;
+                value = speed;
                 break;
             case Status.Phase2:
-                value = velocity2;
+                value = speed2;
+                Points = true;
                 break;
         }
         return value;
@@ -117,7 +146,6 @@ public class GranJefaso : BaseEnemy{
     {
         while (true)
         {
-            print("Mina");
             Instantiate(prefabMina, transform.position, prefabMina.transform.rotation);
             yield return new WaitForSeconds(2.5f);
         }
@@ -127,7 +155,6 @@ public class GranJefaso : BaseEnemy{
     {
         while (true)
         {
-            //print("Shot1");
             Instantiate(prefabBalaMetralla, transform.position, prefabBalaMetralla.transform.rotation);
             yield return new WaitForSeconds(1.2f);
         }
@@ -137,7 +164,6 @@ public class GranJefaso : BaseEnemy{
     {
         while (true)
         {
-            //print("Shot2");
             Instantiate(prefabBalaEscopeta, transform.position, prefabBalaEscopeta.transform.rotation);
             yield return new WaitForSeconds(0.7f);
         }
@@ -148,7 +174,6 @@ public class GranJefaso : BaseEnemy{
         Status value = Status.Phase1;
         if (vida < maxLife * phase2Percentage)
         {
-            print("Deberia Funcionar");
             value = Status.Phase2;
         }
         return value;

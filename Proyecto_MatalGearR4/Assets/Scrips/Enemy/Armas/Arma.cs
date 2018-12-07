@@ -7,6 +7,7 @@ public class Arma : MonoBehaviour {
     public float speed;
     Vector3 playerPos;
     Vector3 moveDir;
+    public int Hurt =10;
 
     public virtual void Start()
     {
