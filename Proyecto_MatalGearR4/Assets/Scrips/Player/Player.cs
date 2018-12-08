@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     public float forceX = 10;
@@ -8,9 +9,11 @@ public class Player : MonoBehaviour {
     public float maxX = 4;
     public float maxY = 4;
     public int hp = 100;
-    public int shield = 100;//por si quieren escudo 
-    public int disparos = 4;
+    public int Chaleco = 100;//por si quieren escudo 
+    public int disparos = 1;//Disparos cada que da espacio
+    public int CanMi = 2;//cantidad de minas
     public GameObject arma1;
+    public GameObject arma2;
 
     Rigidbody2D rb;
     // Use this for initialization
@@ -22,12 +25,23 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         movimiento();
+        GameObject texObj = GameObject.Find("Minas");
+        Text txt = texObj.GetComponent<Text>();
+        txt.text = "Minas: " + CanMi;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             for (int i = 0; i < disparos; i++)
             {
                 Instantiate(arma1, transform.position, arma1.transform.rotation);
 
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (CanMi > 0)
+            {
+                Instantiate(arma2, transform.position, arma2.transform.rotation);
+                CanMi--;
             }
         }
     }

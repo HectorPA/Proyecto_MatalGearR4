@@ -5,24 +5,24 @@ using UnityEngine;
 public class ArmaP : MonoBehaviour {
 
     public float speed;
-    Vector3 playerPos;
-    Vector3 moveDir;
+    Vector3 enemyP;
+    Vector3 dire;
     public int Hurt =10;
 
     public virtual void Start()
     {
-        playerPos = GameObject.Find("Enemy").transform.position;
-        moveDir = (playerPos - transform.position).normalized;
+        enemyP = GameObject.Find("Enemy").transform.position;
+        dire = (enemyP - transform.position).normalized;
     }
 
-    public virtual void Movement()
+    public virtual void mueve()
     {
-        transform.position += moveDir * speed * Time.deltaTime;
+        transform.position += dire * speed * Time.deltaTime;
     }
 
     void Update()
     {
-        Movement();
+        mueve();
     }
 
     public virtual void OnTriggerEnter2D(Collider2D col)
