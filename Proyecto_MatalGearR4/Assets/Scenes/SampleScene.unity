@@ -146,20 +146,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1055704305195578, guid: 1ab7b9f0ba1e04e46abc126543d185f7,
     type: 2}
   m_PrefabInternal: {fileID: 936437010}
---- !u!114 &163903352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 163903351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &163903355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,9 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed715d78d8cb4f945ba95a41e15abb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
-  speed: 0
-  vida: 0
+  points:
+  - {fileID: 2051344817}
+  - {fileID: 53535272}
+  - {fileID: 750119636}
+  - {fileID: 895299730}
+  speed: 1.9
 --- !u!114 &163903356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,8 +179,8 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   speed: 3
-  orientation: 0
   enableRotation: 1
+  rotationIn2D: 1
   rotationSpeed: 10
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 5
@@ -234,8 +223,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
+  graphMask: -1
 --- !u!50 &163903359
 Rigidbody2D:
   serializedVersion: 4
@@ -299,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACQn+tMJ1vtOAAAAEUAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jPRUVBKL0osyCgGChiCOKWZKSB2dF5pTk4sUKCksiDVLzE3FSFYCwBQSwECLQAUAAAICAAAkJ/rTCdb7TgAAABFAAAACQAkAAAAAAAAAAAAAAAAAAAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAABAAEAWwAAAIMAAAAAAA==
+    dataString: UEsDBBQAAAgIAACQn+soLXvHPQIAAMoEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55DCFMuQW2IYkgMDNWQqF19kuY1VyJJLy7BM8e9pyQZ7nMoJ8d7r7tcLfBAuTQXMKr3WPNuoDMi3AfFv8mVAaOBeqeUK4QgRblQJVnP2XR6E144QdJLnSper7ACxMtYgnFNhACmtrI+WCH0MyBk/hgsfcsHXeO5fV3wtRoMbPhlIC7qV3oV3Wa1ykglaVpDt+RVacTRt1FEtk9hLo/DGmRKCm8YJsZcqNPpKL77PjFPsKpT22gL4obDeYTdwm+cGbGNH08uSaxxOnZH8ULbwmUpqjrWndyqcrzGezoKfOunmH34YBTrXqvx5rxuNfA1bcHZEh4wa2xlpF15+Nu7kiYojTQX8KUC+qLVWTmZIWu18qDMwXrZfH63FBbBji9dWe6Cr/r8Y38MtdH+OBS9TT31dTGpkL1QYdtg7aFzLL3QcrsI0ORD1Nt4M/KaH7vk0xDPXxiLVtCm9v1Q57aVkFYbm23E2VlpCgBvXFUgq7GWHaWx/hz2uU7bHPFP/A2mKN9z9/nshAW71o1GP2qnTY1umUKcNmGLrrOASWtOeeME5xUrK+sS6M7mH7Z3OKeuEHRzPPt8Wmc7G4zl7mjKYL+h0BsM8Sun8KZ+k4wWkdDIj4fi4xD6p2NVGm/Hg1mSbXOKh3f8aBmtNq3DumaanNb+WqjNyLnO1ZxpAbusMD+OgsQj+JLNVxnFAe7CWy7Bv8pEQodgRsuSRKAmdrs5W06TNkpCKvyvrkYTE4Q8jITdy+wtQSwMEFAAACAgAAJCf66LdlRBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPUMzTTUVBKL0osyCgGihiCOKWZKSB2tJKpmZGRebKFaXKquWWiqVmqbpphUqK5RZpJkpFlalKiiZlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJCf6ygte8c9AgAAygQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJCf66LdlRBtAAAAeAAAAAkAJAAAAAAAAAAAAAAAigIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABCAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -319,18 +307,51 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _NodeConnection: {r: 1, g: 1, b: 1, a: 0.9}
     _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
     _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors: []
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
+  minAreaSize: 0
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -802,7 +823,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4292469152374334, guid: 4fd603cb11a29d243824f35ec8eed062, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: 9.33
       objectReference: {fileID: 0}
     - target: {fileID: 4292469152374334, guid: 4fd603cb11a29d243824f35ec8eed062, type: 2}
       propertyPath: m_LocalPosition.y

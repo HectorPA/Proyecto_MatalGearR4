@@ -7,7 +7,7 @@ public class BaseEnemy : MonoBehaviour {
     
     public Transform[] points;  
     [Range(1.0f, 10.0f)]
-    public float speed;
+    public float speed,speed2;
 
     private Vector3 currentPoint;
     protected int indexWayPoints = 0;
@@ -21,7 +21,8 @@ public class BaseEnemy : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         Movement();
        }
 
@@ -46,4 +47,5 @@ public class BaseEnemy : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, currentPoint, speed * Time.deltaTime);//mivimiento de un punto a otro lileanal
 
     }
+
 }
