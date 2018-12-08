@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arma : MonoBehaviour {
+public class ArmaP : MonoBehaviour {
 
     public float speed;
     Vector3 playerPos;
@@ -11,7 +11,7 @@ public class Arma : MonoBehaviour {
 
     public virtual void Start()
     {
-        playerPos = GameObject.Find("Player").transform.position;
+        playerPos = GameObject.Find("Enemy").transform.position;
         moveDir = (playerPos - transform.position).normalized;
     }
 
@@ -27,7 +27,7 @@ public class Arma : MonoBehaviour {
 
     public virtual void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Enemy")
         {
             Destroy(gameObject);
         }

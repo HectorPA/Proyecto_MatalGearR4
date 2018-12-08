@@ -22,6 +22,14 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         movimiento();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for (int i = 0; i < disparos; i++)
+            {
+                Instantiate(arma1, transform.position, arma1.transform.rotation);
+
+            }
+        }
     }
     void movimiento(){
         float valX = Input.GetAxis("Horizontal");
@@ -72,4 +80,5 @@ public class Player : MonoBehaviour {
             rb.velocity = freno;
         }
     }
+
 }

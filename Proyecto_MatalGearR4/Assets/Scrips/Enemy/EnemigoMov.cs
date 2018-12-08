@@ -9,7 +9,8 @@ public class EnemigoMov : BaseEnemy {
 
     bool playerDec = false;
 
-    void Start() {
+    void Start()
+    {
         //Se llama el scrip
         destino = GetComponent<AIDestinationSetter>();
         indexWayPoints = 0;
@@ -30,7 +31,8 @@ public class EnemigoMov : BaseEnemy {
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D obj){
+    void OnTriggerEnter2D(Collider2D obj)
+    {
         if (obj.tag == "Player"){
             playerDec = true;
             destino.target = obj.transform;

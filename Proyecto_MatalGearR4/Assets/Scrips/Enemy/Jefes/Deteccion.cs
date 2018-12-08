@@ -12,6 +12,7 @@ public class Deteccion : MonoBehaviour {
         {
             deteccion = true;
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D col)
