@@ -25,7 +25,7 @@ public class Turret : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         empezarAtaque = false;
-        recargar = true;
+        recargar = false;
 
 	}
 	
