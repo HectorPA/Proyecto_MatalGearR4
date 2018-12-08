@@ -190,8 +190,8 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   speed: 3
+  orientation: 0
   enableRotation: 1
-  rotationIn2D: 0
   rotationSpeed: 10
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 5
@@ -234,7 +234,8 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask: -1
+  graphMask:
+    value: -1
 --- !u!50 &163903359
 Rigidbody2D:
   serializedVersion: 4
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACQn+uKKDbxNQAAAD4AAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz1DM001FQSi9KLMgoBooYgDilmSkgdnQskFNSWZDql5ibChGoBQBQSwECLQAUAAAICAAAkJ/riig28TUAAAA+AAAACQAkAAAAAAAAAAAAAAAAAAAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAABAAEAWwAAAIAAAAAAAA==
+    dataString: UEsDBBQAAAgIAACQn+tMJ1vtOAAAAEUAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jPRUVBKL0osyCgGChiCOKWZKSB2dF5pTk4sUKCksiDVLzE3FSFYCwBQSwECLQAUAAAICAAAkJ/rTCdb7TgAAABFAAAACQAkAAAAAAAAAAAAAAAAAAAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAABAAEAWwAAAIMAAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -318,7 +319,7 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _NodeConnection: {r: 1, g: 1, b: 1, a: 0.9}
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
     _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
@@ -330,7 +331,6 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: 1
   maxFrameTime: 1
-  minAreaSize: 0
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -338,7 +338,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 0
+  showGraphs: 1
 --- !u!1001 &302951993
 Prefab:
   m_ObjectHideFlags: 0
