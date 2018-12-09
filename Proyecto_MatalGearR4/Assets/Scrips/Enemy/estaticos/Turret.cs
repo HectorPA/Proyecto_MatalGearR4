@@ -11,65 +11,75 @@ public class Turret : MonoBehaviour {
     public float gradosMaximos; //grados que se servira para moverse a la derecha
     public float distanciaAtacar;
     public float velocidad;
+    public float renaudarVelocidad;
     public int hp;
     public int maxHp;
     public int municion;
+    public int municionMax;
 
     public bool empezarAtaque;
     public bool recargar;
+    public bool esperaVigilancia;
 
     public GameObject bullet;
     public GameObject bulletSpawn;
     public GameObject target;
+    public GameObject canion;
 
 	// Use this for initialization
 	void Start () {
         empezarAtaque = false;
         recargar = false;
-
+        municion = municionMax;
+        esperaVigilancia = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         Vigilancia();
-
-        if (target.transform.position.x > -distanciaAtacar && target.transform.position.y < distanciaAtacar && target.transform.position.x < distanciaAtacar)
-        {
-            empezarAtaque = true;
-        }
-
-        else
-        {
-            empezarAtaque = false;
-
-        }
+        Ataque();
     }
 
     void Vigilancia()
     {
         if (!empezarAtaque)
         {
-            if (bulletSpawn.transform.localEulerAngles.z > grados && bulletSpawn.transform.localEulerAngles.z < gradosMaximos)
+            Debug.Log("vigilando");
+            if (canion.transform.localEulerAngles.z > grados && canion.transform.localEulerAngles.z < gradosMaximos)
             {
                 Debug.Log("Cambiando direccion");
-                velocidad *= -1;
+                if(!esperaVigilancia)
+                {
+                    esperaVigilancia = true;
+                    StartCoroutine(Espera());
+                }
+                
             }
 
-            bulletSpawn.transform.Rotate(Vector3.forward * velocidad * Time.deltaTime);
+            if (target.transform.position.x > (transform.position.x - distanciaAtacar) && target.transform.position.y < (transform.position.y + distanciaAtacar) && target.transform.position.x < (transform.position.x + distanciaAtacar))
+            {
+                empezarAtaque = true;
+            }
+
+            canion.transform.Rotate(Vector3.forward * velocidad * Time.deltaTime);
         }
 
         else
         {
+            if (target.transform.position.x < (transform.position.x - distanciaAtacar) && target.transform.position.y > (transform.position.y + distanciaAtacar) && target.transform.position.x > (transform.position.x + distanciaAtacar))
+            {
+                empezarAtaque = false;
+            }
+            Debug.Log("hora de atacar");
             Vector2 direccion = target.transform.position - bulletSpawn.transform.position;
-            float anguloAtaque = Mathf.Atan2(direccion.x * -1, direccion.y * -1) * Mathf.Rad2Deg;
-            bulletSpawn.transform.rotation = Quaternion.AngleAxis(anguloAtaque, Vector3.back);
-            Ataque();
+            float anguloAtaque = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
+            canion.transform.rotation = Quaternion.AngleAxis(anguloAtaque, Vector3.back);
         }
     }
 
     void Ataque()
     {
-        if(Time.time > nextFire && !recargar)
+        if(Time.time > nextFire && !recargar && empezarAtaque)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
@@ -77,7 +87,27 @@ public class Turret : MonoBehaviour {
             if(municion <= 0 && !recargar)
             {
                 recargar = true;
+                StartCoroutine(RecargaMunicion());
             }
         }
+    }
+
+    IEnumerator Espera()
+    {
+        renaudarVelocidad = velocidad;
+        velocidad = 0;
+        Debug.Log("Esperando");
+        yield return new WaitForSeconds(2.0f);
+        velocidad = renaudarVelocidad;
+        velocidad *= -1;
+        yield return new WaitForSeconds(2.0f);
+        esperaVigilancia = false;
+    }
+
+    IEnumerator RecargaMunicion()
+    {
+        yield return new WaitForSeconds(3.0f);
+        municion = municionMax;
+        recargar = false;
     }
 }
