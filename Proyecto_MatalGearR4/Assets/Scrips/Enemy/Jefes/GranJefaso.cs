@@ -39,7 +39,7 @@ public class GranJefaso : BaseEnemy{
         destino = GetComponent<AIDestinationSetter>();
         indexWayPoints = 0;
 
-        rand = Random.Range(0, 5);
+        rand = Random.Range(0, 9);
     }
 
     // Update is called once per frame
@@ -49,8 +49,9 @@ public class GranJefaso : BaseEnemy{
         colicion = ColiCon();
         //puedes usar el arma de
         Shoot(colicion);
-        aiLerp.speed = VelocityHandler(estado);
-        MinaHandler(estado);
+        aiLerp.speed = VelociEstado(estado);
+        MinaEstado(estado);
+        //intento de rotacion
         /*
             float a = player.transform.position.y - transform.position.y;
             float b = player.transform.position.x - transform.position.x;
@@ -67,7 +68,7 @@ public class GranJefaso : BaseEnemy{
     {
         //adonde vamos
         while (next==true) {
-            rand = Random.Range(0, 5);
+            rand = Random.Range(0, 9);
             break;
         }        
         //modo de caminar
@@ -95,7 +96,7 @@ public class GranJefaso : BaseEnemy{
             destino.target = player.gameObject.transform;
         }
     }
-    void MinaHandler(Status current)
+    void MinaEstado(Status current)
     {
         switch (current)
         {
@@ -155,7 +156,7 @@ public class GranJefaso : BaseEnemy{
         }
     }
     //como caminamos
-    float VelocityHandler(Status current)
+    float VelociEstado(Status current)
     {
         float value = 0.1f;
         switch (current)

@@ -10,17 +10,33 @@ public class Bala : Arma {
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Player");
             Player player = obj.GetComponent<Player>();
-            player.hp -= Hurt;
+            if (player.Chaleco > 0) {
+                player.Chaleco -= Hurt;
+                if (player.Chaleco < 0)
+                {
+                    player.Chaleco = 0;
+                }
 
-            if (player.hp < 0)
+                GameObject Escudo = GameObject.Find("Escudo");
+                Vector3 scale = Escudo.transform.localScale;
+                scale.x = (float)player.Chaleco / 100f;
+                Escudo.transform.localScale = scale;
+            }
+            else
             {
-                player.hp = 0;
+                player.hp -= Hurt;
+                if (player.hp < 0)
+                {
+                    player.hp = 0;
+                }
+
+                GameObject HpBar = GameObject.Find("HpBar");
+                Vector3 scale = HpBar.transform.localScale;
+                scale.x = (float)player.hp / 100f;
+                HpBar.transform.localScale = scale;
             }
 
-            GameObject HpBar = GameObject.Find("HpBar");
-            Vector3 scale = HpBar.transform.localScale;
-            scale.x = (float)player.hp / 100f;
-            HpBar.transform.localScale = scale;
+            
 
             if (player.hp <= 0)
             {
