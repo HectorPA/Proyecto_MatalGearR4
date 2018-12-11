@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.UI;
 
-public class EnemigoMov : BaseEnemy {
+public class EnemigoMovv : BaseEnemy {
   
     AIDestinationSetter destino;
 
