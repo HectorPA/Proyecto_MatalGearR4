@@ -163,8 +163,6 @@ MonoBehaviour:
   - {fileID: 750119636}
   - {fileID: 895299730}
   speed: 1.9
-  speed2: 0
-  vida: 0
 --- !u!114 &163903356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,8 +179,8 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   speed: 3
-  orientation: 1
   enableRotation: 1
+  rotationIn2D: 1
   rotationSpeed: 10
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 5
@@ -225,8 +223,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
+  graphMask: -1
 --- !u!50 &163903359
 Rigidbody2D:
   serializedVersion: 4
@@ -290,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACQn+u168tSSgIAAO8EAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55ACimXILQGGyYGBGjI1F1+E3LZVyJJLy7AV/56WbGOPUzkh3nvd/XqBG+HSFMCs0mvN442KgfzoEf8m33oN+QJnmiq551eoNR88tpkX0aB5o5YrxIc+zKgcrObsp0yFFw8QdJInSuerOIWFMtYgnFBhACmtrI+WCN165Iwf/bkPueBrNPOvK77mg94dnwykBd1Ia2EtK1VOMkHzAmJvuREPJ5V6WMokNlMpvHGmhOCmckLspQidvtGL7zPmFLsKpb02A55m1jtsB26TxICt7Gh6WXKNwykzkl+qnFhOzbH09EmF8zVGk2nwUybd/MP3h4FOtMpf6rrDga9hM86O6JBRY1sjbcPLr8adPFFxpAcBHxnIV7XWyskYSaudD3UGRsvm66O1RQbs2OCl1Q7oiv8vxvdwD92fF4LnB099n49LZC9UGHbYO2hcy290HK7CVDkQ9TbeDfyhaft8KuKZa2ORqtqU3t9BOe2lZBWG5ttxdqG0hABXrguQVNjLDtPY7g47XKtsh3mm/odSFa+4+v47IQFu9INBh9qp02NbJlOnDZhs66zgEhrTnnjFOS2UlOWJtWdSh+2dTihrhaWOx19vi0ymo9GMPU0YzOZ0MoV+MjzQ2VMyPozmcKDjKQnHxyX2ScWuNFqNB7cmm+QSD63+/+itNS3Cuceantb8mqvWyLlM1J5pALktMzyMg8Yi+JOMVzHHAe3BWi7DvsktIkKxI8TRI1EUOl2draZRkyUiBf9U1iMRWYQ/jIjcyf0vUEsDBBQAAAgIAACQn+tvx1Z8bAAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jPRUVBKL0osyCgGChiCOKWZKSB2tJKpmZGRebKFaXKquWWiqVmqbpphUqK5RZpJkpFlalKiiZlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJCf67Xry1JKAgAA7wQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJCf62/HVnxsAAAAdwAAAAkAJAAAAAAAAAAAAAAAlwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABOAwAAAAA=
+    dataString: UEsDBBQAAAgIAACQn+soLXvHPQIAAMoEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55DCFMuQW2IYkgMDNWQqF19kuY1VyJJLy7BM8e9pyQZ7nMoJ8d7r7tcLfBAuTQXMKr3WPNuoDMi3AfFv8mVAaOBeqeUK4QgRblQJVnP2XR6E144QdJLnSper7ACxMtYgnFNhACmtrI+WCH0MyBk/hgsfcsHXeO5fV3wtRoMbPhlIC7qV3oV3Wa1ykglaVpDt+RVacTRt1FEtk9hLo/DGmRKCm8YJsZcqNPpKL77PjFPsKpT22gL4obDeYTdwm+cGbGNH08uSaxxOnZH8ULbwmUpqjrWndyqcrzGezoKfOunmH34YBTrXqvx5rxuNfA1bcHZEh4wa2xlpF15+Nu7kiYojTQX8KUC+qLVWTmZIWu18qDMwXrZfH63FBbBji9dWe6Cr/r8Y38MtdH+OBS9TT31dTGpkL1QYdtg7aFzLL3QcrsI0ORD1Nt4M/KaH7vk0xDPXxiLVtCm9v1Q57aVkFYbm23E2VlpCgBvXFUgq7GWHaWx/hz2uU7bHPFP/A2mKN9z9/nshAW71o1GP2qnTY1umUKcNmGLrrOASWtOeeME5xUrK+sS6M7mH7Z3OKeuEHRzPPt8Wmc7G4zl7mjKYL+h0BsM8Sun8KZ+k4wWkdDIj4fi4xD6p2NVGm/Hg1mSbXOKh3f8aBmtNq3DumaanNb+WqjNyLnO1ZxpAbusMD+OgsQj+JLNVxnFAe7CWy7Bv8pEQodgRsuSRKAmdrs5W06TNkpCKvyvrkYTE4Q8jITdy+wtQSwMEFAAACAgAAJCf66LdlRBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPUMzTTUVBKL0osyCgGihiCOKWZKSB2tJKpmZGRebKFaXKquWWiqVmqbpphUqK5RZpJkpFlalKiiZlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJCf6ygte8c9AgAAygQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJCf66LdlRBtAAAAeAAAAAkAJAAAAAAAAAAAAAAAigIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABCAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -310,7 +307,7 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _NodeConnection: {r: 1, g: 1, b: 1, a: 0.9}
     _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
@@ -354,6 +351,7 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: 1
   maxFrameTime: 10
+  minAreaSize: 0
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -593,48 +591,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &588599500
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476562560491198, guid: e4975f1950210544fa327021d6e926df, type: 2}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e4975f1950210544fa327021d6e926df, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &750119635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,15 +972,6 @@ Prefab:
     - target: {fileID: 4784345649691956, guid: c999e991e8133e046b112f3034a8193f, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728160322642034, guid: c999e991e8133e046b112f3034a8193f, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 58534510453893922, guid: c999e991e8133e046b112f3034a8193f,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c999e991e8133e046b112f3034a8193f, type: 2}

@@ -1,198 +1,106 @@
 Player:
 
-	public float forceX;
-	public float forceY;
-	public float maxX;
-	public float maxY;
-	public int hp;
-	public int shield;//por si quieren escudo 
-	public int disparos;
-	public GameObject arma1;
-	movimiento(){}
-	ataque(){}
+public float forceX;
+public float forceY;
+public float maxX;
+public float maxY;
+public int hp;
+public int shield;//por si quieren escudo 
+public int disparos;
+public GameObject arma1;
+movimiento(){}
+ataque(){}
 
 Turret:
 
-	public float fireRate;
-	public float nextFire;
-	public float grados;
-	public float gradosMaximos;
-	public float distanciaAtacar;
-	public float velocidad;
-	public int hp;
-	public int maxHp;
-	public int municion;
-	public bool empezarAtaque;
-	public bool recargar;
-	public gameObject bullet;
-	public gameObject bulletSpawn;
-	public gameObject target;
-	vigilancia(){}
-	ataque(){}
+public float fireRate;
+public float nextFire;
+public float grados;
+public float gradosMaximos;
+public float distanciaAtacar;
+public float velocidad;
+public int hp;
+public int maxHp;
+public int municion;
+public bool empezarAtaque;
+public bool recargar;
+public gameObject bullet;
+public gameObject bulletSpawn;
+public gameObject target;
+vigilancia(){}
+ataque(){}
 
 
 LazerDoor:
 
-	public float distanciaActivar;
-	public bool sensorActivar;
-	public gameObject target;
-	public gameObject laser;
-	public gameObject laserSpawn;
-	ataque(){}
-	IEnumerator estadoDesactivado(){}
-	IEnumerator estadoActivado(){}
+public float distanciaActivar;
+public bool sensorActivar;
+public gameObject target;
+public gameObject laser;
+public gameObject laserSpawn;
+ataque(){}
+IEnumerator estadoDesactivado(){}
+IEnumerator estadoActivado(){}
 
+//se puede hacer resiclado de este agregando el daño para la distintas armas
 
+balaControl:
+public float speed;
+
+//se crea una base para el movimiento de soldado y jefes 
 BaseEnemy:
-
-	public Transform[] points; 
-	public float speed;
-	private Vector3 currentPoint;
-	protected int indexWayPoints = 0;
-	protected GameObject thePlayer;
-	void Start();
-	void Update ();
-	protected virtual void Moviemiento();
+public Transform[] points; 
+public float speed;
+private Vector3 currentPoint;
+protected int indexWayPoints = 0;
+protected GameObject thePlayer;
+void Start();
+void Update ();
+protected virtual void Moviemiento();
 
 EnemigoMov:
+BaseEnemy+  
+AIDestinationSetter destino;
+bool playerDec = false;
+void Start();
+public override void Movement();
+void OnTriggerEnter2D(Collider2D obj);
+void OnTriggerExit2D(Collider2D obj);
 
-	BaseEnemy+  
-	AIDestinationSetter destino;
-	bool playerDec = false;
-	void Start();
-	public override void Movement();
-	void OnTriggerEnter2D(Collider2D obj);
-	void OnTriggerExit2D(Collider2D obj);
+Soldado:
+public int vida;
+public bool Ataque;
+public bool reposo;
+rangoDeteccion();
+MovimientoSoldado();
+VelocidadSoldado();
+SeguimientoJugador();
+public int balas;
+public gameobject balas;
+public gameobject target;
 
 Boss Tanque:
-
-	public int vidaTanque;
-	public bool Ataque;
-	MovimientoBoss();
-	VelocidadBoss();
-	public int Cañones;
-	public gameobject Cañon;
-	CañonRespawn();
-	public bool sensorTorreta;
-	public int BalasTorreta;
-	public gameobject torreta();
-	public bool RecargaCañon();
-	public bool RecargaTorreta();
-	public gameobject target;
-	SeguimientoJugadorTorreta();
-	SeguimientoJugadorCañon();
+public int vidaTanque;
+public bool Ataque;
+MovimientoBoss();
+VelocidadBoss();
+public int Cañones;
+public gameobject Cañon;
+CañonRespawn();
+public bool sensorTorreta;
+public int BalasTorreta;
+public gameobject torreta();
+public bool RecargaCañon();
+public bool RecargaTorreta();
+public gameobject target;
+SeguimientoJugadorTorreta();
+SeguimientoJugadorCañon();
 
 GranJefaso:
+public int vida;
+public bool Ataque;
+public gameobject arma1;
+public gameobject arma2;
+Movimiento();
+Ataques();
 
-	public bool Points = false;
-    public bool next = false;
-    public int peligro;
-    public int rand;
-    int maxV;
-    public GameObject Pistola;
-    public GameObject Metralleta;
-    public GameObject Minas;
-    public GameObject player;    
-    public Deteccion sensor1, sensor2;
-    public enum Status { Face1, Face2 }
-    public Status estado;
-    public enum Colliding { None, Sensor1, Sensor2 }
-    public Colliding colicion;
-    AIDestinationSetter destino;
-    AILerp aiLerp;
-    Coroutine Arma1, Arma2, DejarMina;
-	void Awake()
-	void Update()
-	public override void Movement()
-	void MinaEstado(Status current)
-	void Shoot(Colliding current)
-	float VelociEstado(Status current)
-	IEnumerator Mina()
-	IEnumerator PistolaD()
-	IEnumerator MetraD()
-	Status EstaActu()
-	Colliding ColiCon()
-
-Deteccion:
-
-    public bool deteccion;
-    private void OnTriggerStay2D(Collider2D col)
-    private void OnTriggerExit2D(Collider2D col)
-
-BotiquinPelea:
-
-	Rigidbody2D rb;
-    void Start()    
-    void OnTriggerEnter2D(Collider2D col)
-
-Botiquin:
-
-	Rigidbody2D rb;
-    void Start()    
-    void OnTriggerEnter2D(Collider2D col)
-
-CajaMina:
-
-    Rigidbody2D rb;
-    void Start()
-    void OnTriggerEnter2D(Collider2D col)   
-
-MinaP:
-
-	public override void OnTriggerEnter2D(Collider2D col)
-
-BalaP:
-
-	public override void OnTriggerEnter2D(Collider2D col)
-
- ArmaP:
-
-    public float speed;
-    Vector3 enemyP;
-    Vector3 dire;
-    public int Hurt =10;
-    public virtual void Start()
-    public virtual void mueve()
-    void Update()
-    public virtual void OnTriggerEnter2D(Collider2D col)
-
-Mina:
-
-	public override void OnTriggerEnter2D(Collider2D col)
-
-Bala:
-
-	public override void OnTriggerEnter2D(Collider2D col)
-
- Arma:
-
-    public float speed;
-    Vector3 enemyP;
-    Vector3 dire;
-    public int Hurt =10;
-    public virtual void Start()
-    public virtual void mueve()
-    void Update()
-    public virtual void OnTriggerEnter2D(Collider2D col)
-
-GameControl:
-    int numlar = 1;
-    public GameObject BotiquinP;
-    public GameObject BotiquinP1;
-    public GameObject BotiquinP2;
-    public GameObject BotiquinP3;
-    public GameObject BotiquinP4;
-    public GameObject MinasP;
-	void Awake() 
-    void SpawSelecion()
-    IEnumerator SpawnBotiquin()
-
-
-EcenaControl: 
-    Rigidbody2D rb;
-    public string identificador;
-    void Start()
-    void OnTriggerEnter2D(Collider2D col)
-
-Menucontrol:
-	public void playClick()

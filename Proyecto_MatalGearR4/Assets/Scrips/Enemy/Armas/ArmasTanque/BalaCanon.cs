@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mina : Arma {
+public class BalaCanon : Arma
+{
+    Arma danocanon;
 
     public override void OnTriggerEnter2D(Collider2D col)
     {
+        danocanon.Hurt = 25;
         if (col.tag == "Player")
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Player");
             Player player = obj.GetComponent<Player>();
-
             if (player.Chaleco > 0)
             {
                 player.Chaleco -= Hurt;
@@ -41,8 +43,12 @@ public class Mina : Arma {
             if (player.hp <= 0)
             {
                 Destroy(col.gameObject);
+                Destroy(gameObject);
             }
-
+            Destroy(gameObject);
+        }
+        if (col.tag == "Obstaculo")
+        {
             Destroy(gameObject);
         }
     }

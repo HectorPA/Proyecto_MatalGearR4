@@ -42,9 +42,6 @@ public class Bala : Arma {
             {
                 Destroy(col.gameObject);
                 Destroy(gameObject);
-                GameObject gcObj = GameObject.FindGameObjectWithTag("GameController");
-                GameControl gc = gcObj.GetComponent<GameControl>();
-                gc.lose();
             }
             Destroy(gameObject);
         }
