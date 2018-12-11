@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
     int numlar = 1;
@@ -107,5 +109,35 @@ public class GameControl : MonoBehaviour {
                 break;
         }
         SpawSelecion();
+    }
+    public void lose()
+    {
+
+        GameObject obj = GameObject.Find("loseText");
+        Text txt = obj.GetComponent<Text>();
+        txt.enabled = true;
+        StartCoroutine(loseProcess());
+    }
+
+    IEnumerator loseProcess()
+    {
+        yield return new WaitForSeconds(3.0F);
+        SceneManager.LoadScene("menu");
+
+    }
+    public void Win()
+    {
+
+        GameObject obj = GameObject.Find("WinText");
+        Text txt = obj.GetComponent<Text>();
+        txt.enabled = true;
+        StartCoroutine(WinPros());
+    }
+
+    IEnumerator WinPros()
+    {
+        yield return new WaitForSeconds(3.0F);
+        SceneManager.LoadScene("menu");
+
     }
 }
