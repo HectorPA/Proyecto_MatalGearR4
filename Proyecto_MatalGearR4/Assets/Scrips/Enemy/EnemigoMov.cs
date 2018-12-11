@@ -10,6 +10,9 @@ public class EnemigoMov : BaseEnemy {
 
     bool playerDec = false;
 
+    GameObject dropMunicion;
+    GameObject dropBotiquin;
+
     void Start()
     {
         //Se llama el scrip
@@ -31,7 +34,12 @@ public class EnemigoMov : BaseEnemy {
                 indexWayPoints = (indexWayPoints + 1) % points.Length;
                 destino.target = points[indexWayPoints];
             }
-        }   
+        }
+
+        if (vida <= 0)
+        {
+            dropObjeto();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -65,6 +73,23 @@ public class EnemigoMov : BaseEnemy {
         yield return new WaitForSeconds(1.0f);
         txt.text = "[OCULTO]";
         destino.target = points[indexWayPoints];
+    }
+
+    void dropObjeto()
+    {
+        float drop = Random.Range(1.0f, 100.0f);
+
+        if (drop > 50)
+        {
+            Instantiate(dropMunicion, transform.position, Quaternion.identity);
+        }
+        else if (drop >= 75)
+        {
+            Instantiate(dropMunicion, transform.position, Quaternion.identity);
+            Instantiate(dropBotiquin, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 
     /*public virtual void Movement(){
