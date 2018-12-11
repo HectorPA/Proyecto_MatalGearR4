@@ -25,25 +25,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         movimiento();
+        ataque();
         GameObject texObj = GameObject.Find("Minas");
         Text txt = texObj.GetComponent<Text>();
         txt.text = "Minas: " + CanMi;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < disparos; i++)
-            {
-                Instantiate(arma1, transform.position, arma1.transform.rotation);
-
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (CanMi > 0)
-            {
-                Instantiate(arma2, transform.position, arma2.transform.rotation);
-                CanMi--;
-            }
-        }
+       
     }
     void movimiento(){
         float valX = Input.GetAxis("Horizontal");
@@ -94,5 +80,24 @@ public class Player : MonoBehaviour {
             rb.velocity = freno;
         }
     }
+    void ataque()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for (int i = 0; i < disparos; i++)
+            {
+                Instantiate(arma1, transform.position, arma1.transform.rotation);
 
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (CanMi > 0)
+            {
+                Instantiate(arma2, transform.position, arma2.transform.rotation);
+                CanMi--;
+            }
+        }
+    }
 }
+

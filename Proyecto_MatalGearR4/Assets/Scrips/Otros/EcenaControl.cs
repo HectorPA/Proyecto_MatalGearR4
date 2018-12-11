@@ -39,14 +39,8 @@ public class EcenaControl : MonoBehaviour {
                 case "PortalZ2":
                     SceneManager.LoadScene("Level1Vics");
                     break;
-                case "PortalZ2_1":
-                    SceneManager.LoadScene("Level2Vics");
-                    break;
-                case "PortalZ2_2":
-                    SceneManager.LoadScene("Level3Vics");
-                    break;
                 case "PortalZ2_3":
-                    SceneManager.LoadScene("boos1");
+                    SceneManager.LoadScene("RicTanqueBoss");
                     break;
             }
         }        

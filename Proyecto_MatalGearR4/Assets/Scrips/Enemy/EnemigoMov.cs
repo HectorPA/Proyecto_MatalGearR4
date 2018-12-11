@@ -10,11 +10,18 @@ public class EnemigoMov : BaseEnemy {
 
     bool playerDec = false;
 
-    void Start()
+    public Deteccion sensor1;
+
+    public GameObject Metralleta;
+    public enum Colliding { None, Sensor1}
+    public Colliding colicion;
+    
+    void Awake()
     {
         //Se llama el scrip
         destino = GetComponent<AIDestinationSetter>();
         indexWayPoints = 0;
+        colicion = Colliding.None;
         //destino.target = points[currentPoint];
     }
 
@@ -66,7 +73,36 @@ public class EnemigoMov : BaseEnemy {
         txt.text = "[OCULTO]";
         destino.target = points[indexWayPoints];
     }
-
+    void Shoot(Colliding current)
+    {
+        switch (current)
+        {
+            case Colliding.Sensor1:
+                //estamos lejos dale con la metra
+               StartCoroutine(MetraD());
+                break;
+            case Colliding.None:
+              
+                break;
+        }
+    }
+    IEnumerator MetraD()
+    {
+        while (true)
+        {
+            Instantiate(Metralleta, transform.position, Metralleta.transform.rotation);
+            yield return new WaitForSeconds(0.7f);
+        }
+    }
+    Colliding ColiCon()
+    {
+        Colliding value = Colliding.None;
+        if (sensor1.deteccion)
+        {
+            value = Colliding.Sensor1;
+        }
+        return value;
+    }
     /*public virtual void Movement(){
         //Se quita movimiento anterio no deja el vector 3 deo current        
         if (Vector3.Distance(transform.position, destino.target.position) < 0.1f){
