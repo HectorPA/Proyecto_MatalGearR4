@@ -41,6 +41,9 @@ public class Mina : Arma {
             if (player.hp <= 0)
             {
                 Destroy(col.gameObject);
+                GameObject gcObj = GameObject.FindGameObjectWithTag("GameController");
+                GameControl gc = gcObj.GetComponent<GameControl>();
+                gc.lose();
             }
 
             Destroy(gameObject);

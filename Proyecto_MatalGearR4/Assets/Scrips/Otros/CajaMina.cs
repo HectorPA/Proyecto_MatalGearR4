@@ -7,13 +7,7 @@ public class CajaMina : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    }    
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag.Equals("Player"))
