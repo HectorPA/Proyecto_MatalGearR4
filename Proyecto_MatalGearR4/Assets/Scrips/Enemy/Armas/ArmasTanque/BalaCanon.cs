@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class BalaCanon : Arma
 {
-    Arma danocanon;
-
     public override void OnTriggerEnter2D(Collider2D col)
     {
-        danocanon.Hurt = 25;
         if (col.tag == "Player")
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Player");

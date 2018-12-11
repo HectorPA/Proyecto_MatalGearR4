@@ -719,11 +719,11 @@ GameObject:
   - component: {fileID: 800737182}
   - component: {fileID: 800737181}
   - component: {fileID: 800737183}
-  - component: {fileID: 800737184}
   - component: {fileID: 800737180}
+  - component: {fileID: 800737184}
   m_Layer: 0
   m_Name: PivoteTanque
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -735,10 +735,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800737178}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.82, y: 3.92, z: 0}
+  m_LocalPosition: {x: 7.46, y: 3.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1671577494}
+  - {fileID: 2113660078}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -756,7 +757,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.44
+  m_Radius: 9.03
 --- !u!114 &800737181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 3.46
+  radius: 2.5
   height: 0.01
   repathRate: 2.16
   canSearch: 1
@@ -827,7 +828,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.3
   pickNextWaypointDist: 2.06
-  endReachedDistance: 3.36
+  endReachedDistance: 3
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -844,6 +845,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canon: 0
+  Metral: 0
+  balaM: {fileID: 1249217169043804, guid: 52ff41b7730378b4485e11feadd271a7, type: 2}
+  balaC: {fileID: 1249217169043804, guid: e1f131a0ae14288419c9170332996fc8, type: 2}
+  Spawn: {fileID: 1437346465}
 --- !u!1 &806746391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1394,7 @@ Prefab:
         type: 2}
       propertyPath: arma1
       value: 
-      objectReference: {fileID: 1816393278289916, guid: 6b16d329937c10041a20ce8f1e9d6d9f,
+      objectReference: {fileID: 1816393278289916, guid: a405feed1b443fe4bb139619c6a7b5b0,
         type: 2}
     - target: {fileID: 114691656243206980, guid: c999e991e8133e046b112f3034a8193f,
         type: 2}
@@ -1435,6 +1440,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!1 &1437346465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437346466}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1437346466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437346465}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70805526, w: 0.7061571}
+  m_LocalPosition: {x: 0.08999994, y: 0, z: -0.080078125}
+  m_LocalScale: {x: 0.45588082, y: 0.58289725, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1671577494}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1513276124
 Prefab:
   m_ObjectHideFlags: 0
@@ -1606,8 +1639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd539a17d26d944e9deff349719ae36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bala: {fileID: 1249217169043804, guid: 52ff41b7730378b4485e11feadd271a7, type: 2}
-  BalaCanon: {fileID: 1249217169043804, guid: e1f131a0ae14288419c9170332996fc8, type: 2}
+  points: []
+  speed: 0
+  speed2: 0
+  vida: 2500
 --- !u!61 &1671577492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1712,7 +1747,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1507785631870648, guid: 4fd603cb11a29d243824f35ec8eed062, type: 2}
       propertyPath: m_TagString
-      value: Tanque
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507785631870648, guid: 4fd603cb11a29d243824f35ec8eed062, type: 2}
+      propertyPath: m_Name
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58912111525141148, guid: 4fd603cb11a29d243824f35ec8eed062, type: 2}
@@ -2193,6 +2232,86 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348856674bcaff5469265a12b865df7a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2113660077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113660078}
+  - component: {fileID: 2113660080}
+  - component: {fileID: 2113660079}
+  - component: {fileID: 2113660081}
+  m_Layer: 0
+  m_Name: Metra
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2113660078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113660077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 800737179}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2113660079
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113660077}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2113660080
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113660077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10.71
+--- !u!114 &2113660081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113660077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a9699f645234e44b66aaedec02bb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Metral: 0
+  balaM: {fileID: 1249217169043804, guid: 52ff41b7730378b4485e11feadd271a7, type: 2}
+  Spawn: {fileID: 1437346465}
 --- !u!1001 &2139441275
 Prefab:
   m_ObjectHideFlags: 0
