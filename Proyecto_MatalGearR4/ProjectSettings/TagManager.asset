@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Obstaculo
   - Enemy
-  - Caja
-  - Tanque
+  - Torreta
   layers:
   - Default
   - TransparentFX

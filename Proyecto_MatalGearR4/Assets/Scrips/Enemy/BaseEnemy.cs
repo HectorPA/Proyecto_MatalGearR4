@@ -24,7 +24,7 @@ public class BaseEnemy : MonoBehaviour {
     void Update ()
     {
         Movement();
-       }
+    }
 
   
 
