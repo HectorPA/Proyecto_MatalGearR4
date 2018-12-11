@@ -180,7 +180,7 @@ public class GranJefaso : BaseEnemy{
         {
             Instantiate(Minas, transform.position, Minas.transform.rotation);
             yield return new WaitForSeconds(2.5f);
-        }
+        } 
     }
     //pistola
     IEnumerator PistolaD()

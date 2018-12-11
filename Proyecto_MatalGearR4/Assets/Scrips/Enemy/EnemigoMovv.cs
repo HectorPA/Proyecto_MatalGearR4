@@ -4,20 +4,31 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.UI;
 
-public class EnemigoMov : BaseEnemy {
+public class EnemigoMovv : BaseEnemy {
   
     AIDestinationSetter destino;
 
     bool playerDec = false;
 
+<<<<<<< HEAD:Proyecto_MatalGearR4/Assets/Scrips/Enemy/EnemigoMov.cs
     GameObject dropMunicion;
     GameObject dropBotiquin;
 
     void Start()
+=======
+    public Deteccion sensor1;
+
+    public GameObject Metralleta;
+    public enum Colliding { None, Sensor1}
+    public Colliding colicion;
+    
+    void Awake()
+>>>>>>> master:Proyecto_MatalGearR4/Assets/Scrips/Enemy/EnemigoMovv.cs
     {
         //Se llama el scrip
         destino = GetComponent<AIDestinationSetter>();
         indexWayPoints = 0;
+        colicion = Colliding.None;
         //destino.target = points[currentPoint];
     }
 
@@ -74,6 +85,7 @@ public class EnemigoMov : BaseEnemy {
         txt.text = "[OCULTO]";
         destino.target = points[indexWayPoints];
     }
+<<<<<<< HEAD:Proyecto_MatalGearR4/Assets/Scrips/Enemy/EnemigoMov.cs
 
     void dropObjeto()
     {
@@ -92,6 +104,38 @@ public class EnemigoMov : BaseEnemy {
         Destroy(gameObject);
     }
 
+=======
+    void Shoot(Colliding current)
+    {
+        switch (current)
+        {
+            case Colliding.Sensor1:
+                //estamos lejos dale con la metra
+               StartCoroutine(MetraD());
+                break;
+            case Colliding.None:
+              
+                break;
+        }
+    }
+    IEnumerator MetraD()
+    {
+        while (true)
+        {
+            Instantiate(Metralleta, transform.position, Metralleta.transform.rotation);
+            yield return new WaitForSeconds(0.7f);
+        }
+    }
+    Colliding ColiCon()
+    {
+        Colliding value = Colliding.None;
+        if (sensor1.deteccion)
+        {
+            value = Colliding.Sensor1;
+        }
+        return value;
+    }
+>>>>>>> master:Proyecto_MatalGearR4/Assets/Scrips/Enemy/EnemigoMovv.cs
     /*public virtual void Movement(){
         //Se quita movimiento anterio no deja el vector 3 deo current        
         if (Vector3.Distance(transform.position, destino.target.position) < 0.1f){
