@@ -31,7 +31,9 @@ public class Turret : MonoBehaviour {
         empezarAtaque = false;
         recargar = false;
         municion = municionMax;
+        maxHp = hp;
         esperaVigilancia = false;
+
 	}
 	
 	// Update is called once per frame
@@ -48,33 +50,24 @@ public class Turret : MonoBehaviour {
             if (canion.transform.localEulerAngles.z > grados && canion.transform.localEulerAngles.z < gradosMaximos)
             {
                 Debug.Log("Cambiando direccion");
-                if(!esperaVigilancia)
+                if (!esperaVigilancia)
                 {
                     esperaVigilancia = true;
                     StartCoroutine(Espera());
                 }
-                
-            }
-
-            if (target.transform.position.x > (transform.position.x - distanciaAtacar) && target.transform.position.y < (transform.position.y + distanciaAtacar) && target.transform.position.x < (transform.position.x + distanciaAtacar))
-            {
-                empezarAtaque = true;
-            }
-
+            } 
             canion.transform.Rotate(Vector3.forward * velocidad * Time.deltaTime);
         }
 
         else
         {
-            if (target.transform.position.x < (transform.position.x - distanciaAtacar) && target.transform.position.y > (transform.position.y + distanciaAtacar) && target.transform.position.x > (transform.position.x + distanciaAtacar))
-            {
-                empezarAtaque = false;
-            }
+            
             Debug.Log("hora de atacar");
-            Vector2 direccion = target.transform.position - bulletSpawn.transform.position;
+            Vector2 direccion = target.transform.position - canion.transform.position;
             float anguloAtaque = Mathf.Atan2(direccion.x, direccion.y) * Mathf.Rad2Deg;
             canion.transform.rotation = Quaternion.AngleAxis(anguloAtaque, Vector3.back);
         }
+
     }
 
     void Ataque()
