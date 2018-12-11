@@ -118,28 +118,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1055704305195578, guid: 1ab7b9f0ba1e04e46abc126543d185f7,
     type: 2}
   m_PrefabInternal: {fileID: 1526987028}
---- !u!114 &2836304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2836303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed715d78d8cb4f945ba95a41e15abb84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 519006644}
-  - {fileID: 1312205645}
-  - {fileID: 381903255}
-  - {fileID: 1312205645}
-  speed: 2.21
-  speed2: 0
-  vida: 100
-  sensor1: {fileID: 0}
-  Metralleta: {fileID: 0}
-  colicion: 0
 --- !u!50 &2836305
 Rigidbody2D:
   serializedVersion: 4
@@ -1974,28 +1952,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &816791350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 816791346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed715d78d8cb4f945ba95a41e15abb84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 2134407919}
-  - {fileID: 712021468}
-  - {fileID: 2146381432}
-  - {fileID: 712021468}
-  speed: 0
-  speed2: 0
-  vida: 0
-  sensor1: {fileID: 0}
-  Metralleta: {fileID: 0}
-  colicion: 0
 --- !u!61 &816791351
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3385,28 +3341,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4073627558789166, guid: 1ab7b9f0ba1e04e46abc126543d185f7,
     type: 2}
   m_PrefabInternal: {fileID: 628426836}
---- !u!114 &1704093046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1704093042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed715d78d8cb4f945ba95a41e15abb84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 864255491}
-  - {fileID: 656792977}
-  - {fileID: 1006948963}
-  - {fileID: 1561258155}
-  speed: 2.5
-  speed2: 0
-  vida: 0
-  sensor1: {fileID: 1985042957}
-  Metralleta: {fileID: 1249217169043804, guid: 2b1d69ff727e3e444aa04c13a22b60db, type: 2}
-  colicion: 0
 --- !u!114 &1704093047
 MonoBehaviour:
   m_ObjectHideFlags: 0
